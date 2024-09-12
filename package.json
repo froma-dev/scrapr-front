@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev --host",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/react": "^3.6.2",
+    "@fontsource-variable/comfortaa": "^5.0.21",
+    "@types/react": "^18.3.5",
+    "@types/react-dom": "^18.3.0",
+    "astro": "^4.15.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

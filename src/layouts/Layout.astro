@@ -1,0 +1,72 @@
+---
+import '@fontsource-variable/comfortaa';
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/hn.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+<style is:global>
+	:root {
+		--accent: 11, 189, 229;
+		--accent-light: 202, 239, 247;
+		--accent-dark: 9, 81, 97;
+		--accent-gradient: linear-gradient(
+			45deg,
+			rgb(var(--accent)),
+			rgb(var(--accent-light)) 30%,
+			white 40%
+		);
+		--hn: #0BBDE5;
+		--info: #0b8ee5;
+		--hn-rgb: 11, 189, 229;
+		--hn-2-rgb: 11, 189, 229;
+		--D4: #d4d4d4;
+		--D4-rgb: 212, 212, 212;
+		--E16: #E16E01;
+		--2B: #2B2B2B;
+		--2B-rgb: 43, 43, 43;
+		--939: #939db8
+	}
+
+	*, *::before, *::after {
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
+
+	html {
+		font-family: 'Comfortaa Variable', system-ui, sans-serif;
+		background: #13151a;
+		color: #D4D4D4
+	}
+
+	h2 {
+		color: var(--939);
+		font-size: 1.25rem
+	}
+
+	body {
+		padding: 1.25rem;
+		display: grid;
+		align-items: center;
+		grid-template-rows: 1fr 10fr 1fr;
+		height: 100dvh;
+	}
+</style>

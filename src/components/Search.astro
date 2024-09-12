@@ -1,0 +1,152 @@
+---
+import SearchResults from './SearchResults.jsx';
+
+const {list} = Astro.props
+---
+
+<section class="search">
+    <SearchResults list={list} client:load />
+</section>
+
+<style>
+    .search {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+        gap: 1.5rem;
+        width: 100%;
+
+        .search-input-label {
+            border-radius: 12px;
+            border: 1px solid rgba(var(--D4-rgb), 40%);
+            background: rgba(var(--2B-rgb), 35%);
+            align-self: stretch;
+            display: flex;
+            gap: 1rem;
+            color: inherit;
+            transition: border-color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            align-items: center;
+            font-size: 1rem;
+
+            > :first-child {
+                margin: 0 0 0 1.5rem
+            }
+
+            .dropdown {
+                display: flex;
+                position: relative;
+
+                #search-by-select {
+                    appearance: none;
+                    background: transparent;
+                    font-size: inherit;
+                    color: var(--D4);
+                    border: none;
+                    padding-right: 0.5rem;
+                }
+
+                svg {
+                    pointer-events: none;
+                    position: absolute;
+                    right: 0;
+                    width: 1rem;
+                    height: 1rem;
+                }
+            }
+
+            .v-delimiter {
+                width: 2px;
+                height: 1.5rem;
+                background: rgba(var(--D4-rgb), 30%)
+            }
+
+            .search-icon {
+                color: rgba(var(--D4-rgb), 30%);
+                width: 2rem;
+                height: 2rem;
+                transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+
+            .search-input {
+                display: inherit;
+                background: none;
+                border: none;
+                color: inherit;
+                width: 100%;
+                padding: 1rem 1.5rem 1rem 0;
+                outline: none;
+                font-size: 1rem;
+                text-transform: uppercase;
+
+                &.empty {
+                    text-transform: none;
+                }
+            }
+
+            &:is(:active, :focus-within) {
+                border-color: var(--D4);
+
+                .search-icon {
+                    color: var(--D4);
+                }
+            }
+        }
+        .search-button {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            border: 2px solid var(--E16);
+            background: transparent;
+            color: var(--D4);
+            font-size: 1.5rem;
+            display: flex;
+            flex: 0 1 180px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0 0 1rem;
+
+            svg {
+                width: 6.25rem;
+                height: 6.25rem;
+            }
+
+            .title {
+                line-height: normal;
+                text-align: center;
+            }
+        }
+
+        .search-table {
+            border-radius: 12px;
+            border: 1px solid rgba(var(--D4-rgb), 40%);
+            background: rgba(var(--2B-rgb), 35%);
+            padding: 1rem;
+            color: inherit;
+            width: 100%;
+
+            thead {
+                background: rgba(var(--2B-rgb), 50%);
+                tr {
+                    text-align: left;
+                }
+            }
+
+            tbody {
+                tr {
+                    text-align: left;
+
+                    &:nth-child(even) {
+                        background: var(--2B);
+                    }
+                }
+            }
+        }
+    }
+</style>

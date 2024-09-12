@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Search from "../components/Search.astro";
+
+const title = "Estado de mi Solicitud de DNI"
+const subTitle = "Verifica si tu DNI está disponible para recoger"
+---
+
+<Layout title={title}>
+    <header>
+        <img class="page-brand" src="/hn.svg"/>
+        <h1 class="page-title">{title}</h1>
+    </header>
+    <main>
+        <h2 class="sub-title">{subTitle}</h2>
+        <Search />
+    </main>
+    <footer>
+        <section class="disclaimer">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 class="icon icon-tabler icons-tabler-outline icon-tabler-info-circle">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0"/>
+                <path d="M12 9h.01"/>
+                <path d="M11 12h1v4h1"/>
+            </svg>
+            <p>La información proporcionada en este sitio web se obtiene del fichero PDF <span>{'nothing'}</span>,
+                publicado por el <strong>Consulado de Honduras en Madrid</strong>.<br/>
+                Este sitio web no tiene ninguna afiliación con dicha entidad. Esta información puede estar sujeta a
+                cambios o actualizaciones por parte de la fuente oficial que puede encontrar en
+                <a href="https://www.consuladohondurasmadrid.es/" rel="noopener noreferrer"
+                   target="_blank"> Consulado de Honduras en Madrid</a> y en <a
+                        href="https://www.facebook.com/consuladodehondurasenmadrid" rel="noopener noreferrer"
+                        target="_blank">Facebook</a>.
+            </p>
+        </section>
+    </footer>
+</Layout>
+
+<style>
+    main {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem;
+        color: white;
+        line-height: 1.6;
+
+        .sub-title {
+            text-align: center;
+            font-size: 1.5rem;
+            margin-top: 4rem;
+        }
+    }
+
+    header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+        align-items: center;
+
+        .page-brand {
+            height: 100%;
+            max-width: 10.25rem;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+
+            background: linear-gradient(to right, var(--D4) 50%, var(--hn));
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    .text-gradient {
+        background-image: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: 400%;
+        background-position: 0%;
+    }
+
+    footer {
+        margin: 0 2rem;
+        display: flex;
+        justify-content: center;
+        font-size: 1rem;
+
+        .disclaimer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            svg {
+                width: 2rem;
+                height: 2rem;
+                stroke: var(--info);
+            }
+
+            p {
+                font-size: 0.8rem;
+                max-width: 80ch;
+                text-align: center;
+
+                a, span {
+                    color: var(--hn);
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+</style>
