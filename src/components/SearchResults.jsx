@@ -41,7 +41,7 @@ const SearchIcon = () => (<>
 const SearchResults = () => {
     const [searchResult, setSearchResult] = useState([])
     const [inputValue, setInputValue] = useState('')
-    const [searchBy, setSearchBy] = useState('name')
+    const [searchBy, setSearchBy] = useState(SEARCH_BY.NAME)
     const inputRef = useRef(null)
 
     const onInputChange = (ev) => {
